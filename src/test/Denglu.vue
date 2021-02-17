@@ -73,7 +73,6 @@
 </style>
 
 <script>
-import HomeVue from '../views/Home.vue';
 export default {
   data() {
     return {
@@ -105,8 +104,8 @@ export default {
               // 1.1项目中除了登录之外的qitaAPI接口，必须在登录之后才能访问
               // 1.2token只应在当前网站打开期间生效，所以将token保存在sessionStorage中
               // 2.通过编程式导航跳转到后台主页，路由地址是/Home
-              window.sessionStorage.setItem("token",res.token="/login")
-              this.$router.push("/");
+              window.sessionStorage.setItem("token",res.token="gg")
+              this.$router.push("/homet");
               })
        }
   },

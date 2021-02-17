@@ -14,14 +14,23 @@ import Banner from '../test/Banner.vue';
 import Carousel from "../test/Carousel.vue"
 import Denglu from "../test/Denglu.vue"
 import HomeT from "../test/HomeT.vue"
-
+import Welcome from "../components/Welcome.vue"
+import Users from "../components/Users.vue"
 
 
 Vue.use(VueRouter)
 
 const routes = [
     { path: '/', component: Home },
-    { path: '/homet', component: HomeT },
+    {
+        path: '/homet',
+        component: HomeT,
+        redirect: '/welcome',
+        children: [{
+            path: '/welcome',
+            component: Welcome
+        }, { path: '/users', component: Users }]
+    },
     { path: '/register', component: Register },
     { path: '/login', component: Login },
     { path: '/cake', component: Cake },

@@ -3,8 +3,8 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 import axios from 'axios'
+import "@/assets/css/reset.css"
 import qs from 'qs'
-
 import Moment from 'moment'
 import Glass from './components/Glass.vue'
 Vue.use(Moment)
@@ -24,6 +24,11 @@ Vue.component("my-foot", MyFoot)
 Vue.component("glass", Glass)
 
 axios.defaults.baseURL = 'http://127.0.0.1:3000'
+axios.interceptors.request.use(config => {
+    console.log(config)
+    config.headers.Authorization = window.sessionStorage.getItem("token")
+    return config
+})
 Vue.prototype.moment = Moment
 Vue.prototype.axios = axios;
 Vue.prototype.qs = qs;
