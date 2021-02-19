@@ -22,7 +22,8 @@ import MyFoot from './components/MyFoot'
 Vue.component("my-header", MyHeader)
 Vue.component("my-foot", MyFoot)
 Vue.component("glass", Glass)
-
+    // 跨域代理
+    // axios.defaults.baseURL = '/api'
 axios.defaults.baseURL = 'http://127.0.0.1:3000'
 axios.interceptors.request.use(config => {
     console.log(config)

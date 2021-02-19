@@ -9,6 +9,9 @@ import Oklist from '../views/Oklist.vue';
 import OnePage from '../test/OnePage.vue';
 import OkDetails from '../views/OkDetails.vue';
 import Details from '../views/Details.vue';
+import Gg from '../views/gg.vue';
+
+
 import Index from '../test/Index.vue';
 import Banner from '../test/Banner.vue';
 import Carousel from "../test/Carousel.vue"
@@ -16,20 +19,34 @@ import Denglu from "../test/Denglu.vue"
 import HomeT from "../test/HomeT.vue"
 import Welcome from "../components/Welcome.vue"
 import Users from "../components/Users.vue"
-
+import Rights from "../components/Power/Rights.vue"
+import Userlist from "../components/Power/Userlist.vue"
 
 Vue.use(VueRouter)
 
 const routes = [
     { path: '/', component: Home },
+    { path: '/gg', component: Gg },
     {
         path: '/homet',
         component: HomeT,
         redirect: '/welcome',
         children: [{
-            path: '/welcome',
-            component: Welcome
-        }, { path: '/users', component: Users }]
+                path: '/welcome',
+                component: Welcome
+            },
+            {
+                path: '/users',
+                component: Users
+            },
+            {
+                path: "/Rights",
+                component: Rights
+            }, {
+                path: "/userlist",
+                component: Userlist
+            }
+        ]
     },
     { path: '/register', component: Register },
     { path: '/login', component: Login },
@@ -52,6 +69,7 @@ const routes = [
         path: "/onepage",
         component: OnePage
     }
+    // 懒加载配置
     // {
     //     path: '/about',
     //     name: 'About',
