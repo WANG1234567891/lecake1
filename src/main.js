@@ -3,7 +3,7 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 import axios from 'axios'
-import "@/assets/css/reset.css"
+import "./assets/css/reset.css"
 import qs from 'qs'
 import Moment from 'moment'
 import Glass from './components/Glass.vue'
@@ -14,9 +14,14 @@ import MintUI from 'mint-ui';
 import 'mint-ui/lib/style.min.css';
 //导入通过vue.use方法将mint ui 注册为vue的插件
 Vue.use(MintUI);
+
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 Vue.use(ElementUI)
+
+import TreeTable from 'vue-table-with-tree-grid'
+Vue.component("tree-table", TreeTable)
+
 import MyHeader from './components/MyHeader'
 import MyFoot from './components/MyFoot'
 Vue.component("my-header", MyHeader)

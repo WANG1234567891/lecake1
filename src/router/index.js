@@ -21,7 +21,8 @@ import Welcome from "../components/Welcome.vue"
 import Users from "../components/Users.vue"
 import Rights from "../components/Power/Rights.vue"
 import Userlist from "../components/Power/Userlist.vue"
-
+import Cate from "../components/goods/Cate.vue"
+import Params from "../components/goods/Params.vue"
 Vue.use(VueRouter)
 
 const routes = [
@@ -40,12 +41,15 @@ const routes = [
                 component: Users
             },
             {
-                path: "/Rights",
+                path: "/rights",
                 component: Rights
             }, {
                 path: "/userlist",
                 component: Userlist
-            }
+            }, {
+                path: "/cate",
+                component: Cate
+            }, { path: "/params", component: Params }
         ]
     },
     { path: '/register', component: Register },
