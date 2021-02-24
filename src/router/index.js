@@ -23,6 +23,10 @@ import Rights from "../components/Power/Rights.vue"
 import Userlist from "../components/Power/Userlist.vue"
 import Cate from "../components/goods/Cate.vue"
 import Params from "../components/goods/Params.vue"
+import GoodList from "../components/goods/List.vue"
+import GoodAdd from "../components/goods/Add.vue"
+import GoodTes from "../components/goods/Tes.vue"
+import Order from "../components/orders/Order.vue"
 Vue.use(VueRouter)
 
 const routes = [
@@ -49,27 +53,37 @@ const routes = [
             }, {
                 path: "/cate",
                 component: Cate
-            }, { path: "/params", component: Params }
+            }, {
+                path: "/params",
+                component: Params
+            }, {
+                path: "/list",
+                component: GoodList
+            },
+            {
+                path: "/goods/add",
+                component: GoodAdd
+            },
+            {
+                path: "/goods/tes",
+                component: GoodTes
+            },
+            {
+                path: "/order",
+                component: Order
+            }
         ]
     },
-    { path: '/register', component: Register },
-    { path: '/login', component: Login },
-    { path: '/cake', component: Cake },
-    { path: '/oklist', component: Oklist },
+    { path: '/register', component: Register }, { path: '/login', component: Login }, { path: '/cake', component: Cake }, { path: '/oklist', component: Oklist },
     //通过路由传参，prop为允许组件传参
-    { path: '/details/:Tid', props: true, component: Details },
-    { path: '/okdetails/:Kid', props: true, component: OkDetails },
+    { path: '/details/:Tid', props: true, component: Details }, { path: '/okdetails/:Kid', props: true, component: OkDetails },
 
 
     // test
-    { path: '/index', component: Index },
-    { path: '/banner', component: Banner },
-    { path: '/denglu', component: Denglu },
-    {
+    { path: '/index', component: Index }, { path: '/banner', component: Banner }, { path: '/denglu', component: Denglu }, {
         path: "/carousel",
         component: Carousel
-    },
-    {
+    }, {
         path: "/onepage",
         component: OnePage
     }
