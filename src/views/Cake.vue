@@ -156,12 +156,12 @@ export default {
     },
   },
   watch: {
-    // active(value){
-    //   this.axios.get('/cakelist1/cid='+value).then(res=>{
-    //     this.cakeproducts=res.data.results;
-    //     console.log(res.data.results)
-    //   })
-    // }
+    active(value){
+      this.axios.get('/cakelist1/cid='+value).then(res=>{
+        this.cakeproducts=res.data.results;
+        console.log(res.data.results)
+      })
+    }
   },
   mounted() {
     this.axios.get("/CakeL").then((res) => {

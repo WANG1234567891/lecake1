@@ -86,7 +86,7 @@
                <el-dialog :title=" '修改' + titleText " :visible.sync="editDialogVisible" width="50%" @close="editDialogClose">
                     <el-form status-icon :model="editForm" :rules="editFormRules" ref="editFormRef" label-width="100px">
                          <el-form-item :label="titleText" prop="cat_name">
-                         <el-input v-model="editForm.cat_name"></el-input>
+                              <el-input v-model="editForm.cat_name"></el-input>
                          </el-form-item>
                     </el-form>
                     <span slot="footer" class="dialog-footer">
@@ -108,6 +108,7 @@
 }
 .el-alert{margin-bottom: 1rem;}
 .elbtn{margin-bottom: 1rem;}
+.el-button,button{outline: none;}
 .el-tag{margin-right: .5rem;margin-top: 0.4rem;}
 .input-new-tag{width: 9rem;margin-top: .5rem;}
 .button-new-tag,.input-new-tag{margin-top: .5rem;}

@@ -125,4 +125,6 @@ export default {
      font-size: 12px;
 }
 .el-table{margin: 1rem 0;}
+.el-button{outline: none;}
+
 </style>

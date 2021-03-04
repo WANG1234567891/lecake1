@@ -76,7 +76,8 @@ const routes = [
     },
     { path: '/register', component: Register }, { path: '/login', component: Login }, { path: '/cake', component: Cake }, { path: '/oklist', component: Oklist },
     //通过路由传参，prop为允许组件传参
-    { path: '/details/:Tid', props: true, component: Details }, { path: '/okdetails/:Kid', props: true, component: OkDetails },
+    { path: '/details/:Tid', props: true, component: Details },
+    { path: '/okdetails/:Kid', props: true, component: OkDetails },
 
 
     // test

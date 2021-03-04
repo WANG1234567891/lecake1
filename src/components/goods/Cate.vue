@@ -76,6 +76,8 @@
 .tree-table{
      margin-top: 1rem;
 }
+.el-button{outline: none;}
+
 </style>
 <script>
 export default {

@@ -252,6 +252,6 @@ export default {
 }
 .el-steps{margin: 1rem 0;}
 .el-checkbox{margin: 10px 10px 0 0 !important;}
-.el-button{margin-top: 1rem;}
+.el-button{margin-top: 1rem;outline: none;}
 #quill .ql-container p{min-height: 300px !important;}
 </style>
