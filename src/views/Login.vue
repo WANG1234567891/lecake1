@@ -84,7 +84,7 @@
                   >忘记密码</router-link
                 >
                 <span class="font2">还没有账号？</span>
-                <router-link to="/" class="font2 color1">立即注册</router-link>
+                <router-link to="/" class="font2 register">立即注册</router-link>
               </div>
               <div class="weixin font1">
                 <p>------请他登录方式------</p>
@@ -92,8 +92,7 @@
                   <img
                     class="mr-3"
                     src="../../public/register/weixin.png"
-                    alt=""
-                  />
+                    alt=""/>
                   <img src="../../public/register/QQ.png" alt="" />
                 </div>
               </div>
@@ -107,8 +106,8 @@
 </template>
 <style>
 /* 定义公有样式 */
-.color1 {
-  color: #fe4320;
+.color1,.register {
+  color: #fe4320 !important;
 }
 .color2 {
   color: silver;
@@ -173,6 +172,7 @@
 #login .login .mint-tab-item-label {
   font-size: 14px;
 }
+.weixin{margin-top: 2.5rem;}
 .weixin p {
   text-align: center;
 }
@@ -187,12 +187,13 @@
   width: 250px;
   height: 50px;
   background-color: #fe4320;
-  margin: 0 auto;
+  margin: 1.3rem auto;
   line-height: 50px;
 }
 #login .center .login .my-button:focus {
   outline: none;
 }
+#login .imgs img{margin: 2rem 0;}
 </style>
 <script>
 export default {
@@ -209,19 +210,25 @@ export default {
     handle() {
       if (this.checkUsername() && this.checkPassword()) {
         //现在要发送相关的用户名、密码到web服务器
-        this.axios
-          .post("/login", `username=${this.username}&password=${this.password}`)
-          .then((res) => {
-            if (res.data.code == 1) {
-              alert("登陆成功Welcome here!");
-              this.$router.push("/");
-            } else {
-              (this.username = ""),
-                (this.password = ""),
-                alert("登录失败"),
-                this.$router.push("/login");
-            }
-          });
+        // 换至vuex中发送请求
+        let str=`username=${this.username}&password=${this.password}`
+        this.$store.dispatch('login_actions',str)
+        // this.axios
+        //   .post("/login", `username=${this.username}&password=${this.password}`)
+        //   .then((res) => {
+        //     if (res.data.code == 1) {
+        //       alert("登陆成功Welcome here!");
+        //       localStorage.setItem('isLoinged',1)
+        //       localStorage.setItem('userInfo',JSON.stringify(res.data.userInfo))
+        //       this.$store.commit('login_mutations',res.data.userInfo)
+        //       this.$router.push("/");
+        //     } else {
+        //       (this.username = ""),
+        //         (this.password = ""),
+        //         alert("登录失败"),
+        //         this.$router.push("/login");
+        //     }
+        //   });
       }
     },
     checkUsername() {
@@ -229,10 +236,10 @@ export default {
       let reg_username = /^[0-9a-zA-Z]{6,12}$/;
       //校验用户名
       if (reg_username.test(username)) {
-        this.$message({
-          message: "用户名格式正确",
-          type: "success",
-        });
+        // this.$message({
+        //   message: "用户名格式正确",
+        //   type: "success",
+        // });
         return true;
       } else {
         this.$toast({
@@ -253,10 +260,10 @@ export default {
       let reg_password = /^[0-9a-zA-Z\.\-_]{8,15}$/;
 
       if (reg_password.test(password)) {
-        this.$message({
-          message: "密码格式正确哟",
-          type: "success",
-        });
+        // this.$message({
+        //   message: "密码格式正确哟",
+        //   type: "success",
+        // });
         return true;
       } else {
         //消息提示框

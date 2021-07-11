@@ -1,10 +1,22 @@
 <template>
-     <div>配置跨域页面</div>
+  <div>
+    配置跨域页面
+    <h5>{{ num }}</h5>
+  </div>
 </template>
 <script>
+import { number } from 'echarts';
 export default {
-     mounted(){
-       console.log(this.axios.get("/try.php?filename=tryjquery_hide").then(results =>{console.log(results)}))
-     }
-}
+     props:{num:{type:Number}},
+  data() {
+    return {  };
+  },
+  mounted() {
+//     console.log(
+//       this.axios.get("/try.php?filename=tryjquery_hide").then((results) => {
+//         console.log(results);
+//       })
+//     );
+  },
+};
 </script>

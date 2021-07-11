@@ -1,5 +1,6 @@
 <template>
   <div id="details">
+    <my-header></my-header>
     <div class="change" style="width: 1200px; height: 520px; margin: 0 auto">
       <el-carousel :interval="5000" arrow="always" class="els">
         <el-carousel-item v-for="(item, k) in carou" :key="k">
@@ -11,10 +12,10 @@
       <div class="buy-one">
         <div>
           <div class="d-flex py">
-            <div class="font3">{{ detail.Ttitle }}</div>
-            <div class="font4 color2">￥{{ detail.Tprice }}</div>
+            <div class="font3">商品名 : {{ detail.Ttitle }}</div>
+            <div class="font4 color2">单价 : ￥{{ detail.Tprice }}</div>
           </div>
-          <div class="mb font1">{{ detail.Ttitle_details }}</div>
+          <div class="mb font1">赠品 : {{ detail.Ttitle_details }}</div>
           <router-link to="/" class="aha">
             <!-- <img :src="detail.Timg" /> -->
             <!-- 放大镜效果 -->
@@ -30,7 +31,7 @@
             ></glass>
             <h4 class="font1 my" id="h4-one">优惠促销</h4>
             <p class="font1">
-              <span class="color1 bg1 pl1"> 赠品 </span> 赠任意款盒子蛋糕
+              <span class="colorbtn bg1 pl1"> 赠品 </span> 赠任意款盒子蛋糕
             </p>
             <h6>查看促销详情</h6>
           </div>
@@ -47,10 +48,10 @@
             </el-tab-pane>
           </el-tabs>
           <div class="paround">
-            <button class="bg2 color1 font4">
+            <button class="bg2 colorbtn font4" @click="addCount">
               加入购物车+
             </button>
-            <button class="bg2 color1 font4">立即购买</button>
+            <button class="bg2 colorbtn font4" @click="routerGo">立即购买</button>
           </div>
         </div>
       </div>
@@ -132,9 +133,10 @@
   display: flex;
   justify-content: space-between;
 }
-.color1 {
-  color: white;
+.colorbtn {
+  color: white;outline: none;
 }
+.colorbtn:active{background: rgb(243, 185, 176);}
 .color2 {
   color: tomato;
 }
@@ -259,13 +261,15 @@
 }
 .aha > .span1 {
   position: absolute;
-  top: -14px;
+  top: 5px;
   left: 207px;
+  color: white !important;
 }
 .aha > .span2 {
   position: absolute;
-  top: -14px;
-  right: 30px;
+  top: 5px;
+  right: 43px;
+  color: white !important;
 }
 
 .buy-two .el-tabs--border-card {
@@ -310,6 +314,15 @@ export default {
         this.detail = data;
       });
     },
+    addCount(){
+      if (this.$store.state.count === 9) {
+      this.$message.error('亲,确定要购买这么多吗 ?')
+      }
+      this.$store.commit('changeCountTwo')
+    },
+    routerGo(){
+      this.$router.push('/cart')
+    }
   },
   mounted() {
     this.getData();

@@ -1,20 +1,5 @@
 <template>
   <div class="carousel-container">
-    <!-- <ul class="imgs">
-      <li v-for="(it, i) of banners" :key="i" :class="{ do: i == index }">
-        <a href=""><img :src="it.url" alt="" /></a>
-      </li>
-    </ul>
-    <ul class="circle">
-      <li
-        v-for="(it, i) of banners"
-        :key="i"
-        :class="{ active: i == index }"
-        @click="index = i"
-      ></li>
-    </ul> -->
-
-    
     <ul class="imgs">
       <li v-for="(item,inde) of banners" :key="inde" :class="{do:inde == index}">
         <a href=""><img :src="item.url" alt=""></a>
@@ -23,7 +8,6 @@
     <ul class="circle">
       <li v-for="(item,i) of banners" :key="i" :class="{active:i == index}" @click="index = i"></li>
     </ul>
-
     <div>{{this.$route.params.id}}</div>
   </div>
 </template>
@@ -67,7 +51,7 @@
   width: 100%;
   height: 12px;
   display: flex;
-  transform: translate(50%);
+  transform: translate(45%);
 }
 .circle li {
   width: 10px;
@@ -86,30 +70,6 @@
 
 <script>
 export default {
-  // data() {
-  //   return {
-  //     index: 0,
-  //     banners: [
-  //       { url: require("../../public/carousel/lunbofour.jpg") },
-  //       { url: require("../../public/carousel/lunboone.jpg") },
-  //       { url: require("../../public/carousel/lunbofour.jpg") },
-  //     ],
-
-  //   };
-  // },
-  // methods:{
-  //      autoLoad(){
-  //           setInterval(() => {
-  //                this.index +=1;
-  //                if(this.index > this.banners.length-1)
-  //                this.index =0
-  //           }, 3000);
-  //      }
-  // },
-  // mounted(){
-  //      this.autoLoad()
-  // }
-
   data() {
     return {
       index: 0,
@@ -118,7 +78,6 @@ export default {
         { url: require("../../public/carousel/lunboone.jpg") },
         { url: require("../../public/carousel/lunbothree.jpg") },
       ],
-
     };
   },
   methods:{

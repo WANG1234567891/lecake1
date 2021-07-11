@@ -3,11 +3,10 @@
     <div class="topper">
       <table></table>
       <div class="top">
-        <img src="../../public/register/logo_new.png" alt="" />
-        <p class="pt-4">
-          用户注册<span class="font1">已有诺心账号?</span
-          ><router-link to="/" class="font1 color1">请登录</router-link>
-        </p>
+          <div></div>
+          <span>用户注册</span>
+          <img src="../../public/register/logo_new.png" alt="" />
+          <span class="font1">已有诺心账号?<router-link to="/" class="font1 color1">请登录</router-link></span>
       </div>
     </div>
     <!-- 登录区域开始 -->
@@ -23,8 +22,7 @@
                 v-model="username"
                 placeholder="请输入6-12位字母数字的用户名"
                 @blur.native.capture="checkUsername"
-                :state="usernameState"
-              >
+                :state="usernameState">
               </mt-field>
               <mt-field
                 label="密码:"
@@ -32,8 +30,7 @@
                 v-model="password"
                 placeholder="请输入8-15位的字母数字密码"
                 @blur.native.capture="checkPassword"
-                :state="passwordState"
-              >
+                :state="passwordState">
               </mt-field>
               <mt-field
                 label="确认密码:"
@@ -97,14 +94,16 @@
   border-bottom: 1px solid silver;
 }
 #login .top {
-  width: 1200px;
+  width: 100vw;
+  display: flex;
+  justify-content: space-evenly;
   position: relative;
+  line-height: 84px;
 }
 #login .top img {
   height: 24px;
   position: absolute;
-  left: 100px;
-  top: 30px;
+  top: 30px;left: 200px;
 }
 
 #login p > a {
@@ -120,7 +119,7 @@
 }
 #login .center .login {
   width: 430px;
-  height: 439px;
+  height: 325px;
   padding: 20px 32px;
   background: white;
   margin: 0 auto;
@@ -150,6 +149,7 @@
 #login .center .login .my-button:focus {
   outline: none;
 }
+.mint-cell{margin: 1.3rem 0;}
 </style>
 <script>
 export default {

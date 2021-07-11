@@ -150,6 +150,7 @@ export default {
 </script>
 
 <style scoped>
+
 .el-breadcrumb{
      margin-bottom: 15px;
      font-size: 12px;

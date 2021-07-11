@@ -24,7 +24,7 @@
 			// 接收放大的倍数
 			times:{
 				type:Number,
-				default:1.5
+				default:2
 			}
 		},
 		data(){
@@ -112,8 +112,8 @@
 		cursor: move;
 	}
 	.bigimg-box {
-		width: 280px;
-		height: 280px;
+		width: 300px;
+		height: 300px;
 		position: absolute;
 		top: 0;
 		right: -130px;
@@ -121,8 +121,8 @@
 		z-index: 999;
 	}
 	.glass .bigimg-box img{
-		/*width: 1444px;*/
-		/*height: 1444px;*/
+		/* width: 1444px;
+		height: 1444px; */
 		position: absolute;
 	}
 

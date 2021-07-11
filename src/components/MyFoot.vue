@@ -18,9 +18,7 @@
         <p class="font1">
           copyright©2010-2020 诺心lecake.com版权所有
           <router-link to="/" class="font1">沪ICP10211730号</router-link>
-          <router-link to="/" class="font1"
-            >沪公网安备31010402003364号</router-link
-          >
+          <router-link to="/" class="font1">沪公网安备31010402003364号</router-link>
         </p>
       </div>
       <div class="right pr1 font3">
@@ -34,6 +32,8 @@
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+.mt-2{margin-top: 1.8rem!important;margin-bottom: 1.8rem;}
+.pltwo[data-v-1ef6d16a]{padding-top: 1rem;}
 a {
   color: black;
   text-decoration: none;
@@ -78,12 +78,12 @@ a:hover {
   text-align: center;
 }
 #footer .right p:nth-child(2) {
-  margin: 0;
-  font-size: 14px;
+  margin:10px 0;
+  font-size: 13px;
 }
 #footer .right p:nth-child(3) {
   margin: 0;
   padding-left: 5px;
-  font-size: 14px;
+  font-size: 13px;
 }
 </style>

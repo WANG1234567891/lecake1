@@ -7,9 +7,11 @@ import Login from '../views/Login.vue';
 import Cake from '../views/Cake.vue';
 import Oklist from '../views/Oklist.vue';
 import OnePage from '../test/OnePage.vue';
+import One from '../test/One.vue';
 import OkDetails from '../views/OkDetails.vue';
 import Details from '../views/Details.vue';
 import Gg from '../views/gg.vue';
+import Cart from '../views/Cart.vue';
 
 
 import Index from '../test/Index.vue';
@@ -27,11 +29,13 @@ import GoodList from "../components/goods/List.vue"
 import GoodAdd from "../components/goods/Add.vue"
 import GoodTes from "../components/goods/Tes.vue"
 import Order from "../components/orders/Order.vue"
+import Report from "../components/Report/Report.vue"
 Vue.use(VueRouter)
 
 const routes = [
     { path: '/', component: Home },
     { path: '/gg', component: Gg },
+    { path: '/cart', component: Cart },
     {
         path: '/homet',
         component: HomeT,
@@ -39,8 +43,7 @@ const routes = [
         children: [{
                 path: '/welcome',
                 component: Welcome
-            },
-            {
+            }, {
                 path: '/users',
                 component: Users
             },
@@ -71,6 +74,9 @@ const routes = [
             {
                 path: "/order",
                 component: Order
+            }, {
+                path: "/report",
+                component: Report
             }
         ]
     },
@@ -78,7 +84,7 @@ const routes = [
     //通过路由传参，prop为允许组件传参
     { path: '/details/:Tid', props: true, component: Details },
     { path: '/okdetails/:Kid', props: true, component: OkDetails },
-
+    { path: '/one', component: One },
 
     // test
     { path: '/index', component: Index }, { path: '/banner', component: Banner }, { path: '/denglu', component: Denglu }, {

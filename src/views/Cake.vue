@@ -2,7 +2,7 @@
   <div id="cakepro">
     <my-header></my-header>
     <div class="cakepro-container">
-      <div><img src="../../public/cakepage/cakeBanner.jpg" alt="" /></div>
+      <div class="cake-img"><img src="../../public/cakepage/cakeBanner.jpg" alt="" /></div>
       <div class="list">
         <el-tabs v-model="active" type="card" @tab-click="handleClick">
           <el-tab-pane
@@ -66,12 +66,15 @@ a:hover,
 .bg1 {
   background: #cca976;
   padding: 1px 6px;
-  width: 137px;
+  width: 145px;
+  display: block;
+  margin-bottom: 7px;
+  line-height: 18px;
 }
 .mt-mb {
-  margin: 5px 0 !important;
+  margin: .7rem 0 !important;
 }
-
+.cake-img{margin-top: 1rem;}
 #all > .twoup > .twoup-container > .nav-1 li:nth-child(3) > a {
   color: tomato;
 }
@@ -107,7 +110,8 @@ a:hover,
 }
 
 #cakepro > .cakepro-container .cakelist {
-  clear: both;
+  display: table;
+  background-color: white;
   width: 1200px;
   box-sizing: border-box;
 }

@@ -3,7 +3,7 @@
     <my-header></my-header>
     <div class="change" style="width: 1200px; height: 520px; margin: 0 auto">
       <el-carousel :interval="5000" arrow="always" class="els">
-        <el-carousel-item v-for="(item,k) in carou" :key="k">
+        <el-carousel-item v-for="(item, k) in carou" :key="k">
           <img :src="okdetail.Kimg" alt="" />
         </el-carousel-item>
       </el-carousel>
@@ -12,12 +12,12 @@
       <div class="buy-one">
         <div>
           <div class="d-flex py">
-            <div class="font3">{{okdetail.Ktitle}}</div>
-            <div class="font4 color2">￥{{okdetail.Kprice}}</div>
+            <div class="font3">{{ okdetail.Ktitle }}</div>
+            <div class="font4 color2">￥{{ okdetail.Kprice }}</div>
           </div>
-          <div class="mb font1">{{okdetail.Ktitle_details}}</div>
+          <div class="mb font1">{{ okdetail.Ktitle_details }}</div>
           <router-link to="/" class="aha">
-            <img :src="okdetail.Kimg" alt="">
+            <img :src="okdetail.Kimg" alt="" />
             <span class="span1 color1 font1">开通仅¥99 预计可省¥358</span>
             <span class="span2 color1 font1">立即开通</span>
           </router-link>
@@ -49,10 +49,10 @@
       </div>
     </div>
     <div class="w12">
-      <img :src="okdetail.Kimg" alt="">
+      <img :src="okdetail.Kimg" alt="" />
     </div>
     <div class="w12">
-      <img :src="okdetail.Kimg" alt=""/>
+      <img :src="okdetail.Kimg" alt="" />
     </div>
     <div class="w12">
       <img :src="okdetail.Kimg" alt="" />
@@ -92,12 +92,13 @@
     <div class="cup w12">
       <h4>一杯芒芒金露</h4>
       <h5>Very Mango Pomelo Cake</h5>
-      <div> </div>
+      <div></div>
       <p>经典“芒柚cp”来咯</p>
       <p>绵密奶盖搭配Q爽波波</p>
       <p>椰子慕斯热情加持</p>
       <p>加入赤藓糖醇、高膳食纤维、健康有益菌</p>
       <p>满杯活力，赶快来拥有！</p>
+      <h1 style="color: black; font-size: 30px">{{ faVal }}</h1>
     </div>
     <div class="w12">
       <img :src="okdetail.Kimg" alt="" />
@@ -266,33 +267,46 @@
   border-bottom: 0px;
   border-right: 0px;
 }
-.main,.about{margin-bottom: 20px;height: 200px;}
-.main .left{float: left;margin-left:350px;}
+.main,
+.about {
+  margin-bottom: 20px;
+  height: 200px;
+}
+.main .left {
+  float: left;
+  margin-left: 350px;
+}
 </style>
 <script>
 export default {
   //接收oklist创来的id参数
-  props:["Kid"],
+  props: ["Kid", "faVal"],
   data() {
     return {
       carou: [
         { url: require("../../public/carousel/details2.jpg") },
         { url: require("../../public/carousel/details1.jpg") },
       ],
-      okdetail:{}
+      okdetail: {},
     };
   },
-  methods:{
-    getDatatwo(){
-      this.axios.get('/okdetails',{params:{Kid:this.Kid}}).then(res=>{
-        let data = res.data.results; 
-        console.log(data)
-        this.okdetail = data;
-      })
-    }
+  methods: {
+    getDatatwo() {
+      this.axios
+        .get("/okdetails", { params: { Kid: this.Kid } })
+        .then((res) => {
+          let data = res.data.results;
+          console.log(data);
+          this.okdetail = data;
+        });
+    },
   },
-  mounted(){
+  mounted() {
     this.getDatatwo();
+     console.log(this.faVal)
+  },
+  created(){
+   
   }
 };
 </script>

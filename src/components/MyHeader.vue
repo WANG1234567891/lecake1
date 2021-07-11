@@ -4,12 +4,11 @@
       <div class="twoup-container">
         <ul class="nav-1">
           <li><img src="../../public/cakepage/logo.png" alt="" /></li>
-          <li><router-link to="/" class="font3">首页</router-link></li>
+          <li><router-link to="/" class="font3" @click="lisElement(event)">首页</router-link></li>
           <li><router-link to="/cake" class="font3">蛋糕</router-link></li>
           <li><router-link to="/oklist" class="font3">OK零食</router-link></li>
           <li>
-            <router-link to="/" class="font3"
-              >合作专区
+            <router-link to="/" class="font3">合作专区
               <ul>
                 <li>
                   <router-link to="/" class="font3">银行活动</router-link>
@@ -43,13 +42,17 @@
             <ul class="login">
               <li>
                 <router-link to="/login">登录</router-link>
+                <div v-if="this.$store.state.isLogined">{{this.$store.state.userInfo.username}}</div>
+                <div v-else style="font-size:12px;padding-top:6px;">您还未登陆</div>
               </li>
               <br />
               <li>
+                <div v-if="this.$store.state.isLogined == 1" @click="logOut" class="logout">退出</div>
+                <div v-else></div>
                 <router-link to="/register">注册</router-link>
               </li>
             </ul>
-            <span class="spantop">{{count}}</span>
+            <span class="spantop" @click="goCart">{{this.$store.state.count}}</span>
           </li>
         </ul>
       </div>
@@ -178,11 +181,13 @@ a:hover {
   top: 27px;
   left: 18px;
   width: 80px;
-  height: 80px;
+  height: 90px;
   background: white;
   box-shadow: 1px 0px 3px 1px #ebebeb;
   display: none;
 }
+a:focus{outline: none!important;}
+#all .logout{cursor: pointer;}
 #all > .twoup > .twoup-container > .nav-1 .login-touch:hover .login{display: list-item;}
 #all > .twoup > .twoup-container > .nav-1 .login-touch > .login li{ text-align: center;width: 100%;padding-top: 10px;}
 #all > .twoup > .twoup-container > .nav-1 .login-touch > .login li a{color: black!important;}
@@ -191,8 +196,20 @@ a:hover {
 <script>
 export default {
   data(){
-    return{count:0}
-    
-  }
+    return{count:0,}
+  },
+  methods:{
+      logOut(){
+        this.$store.commit('logOut_mutation')
+      },
+      goCart(){
+        this.$router.push('/cart')
+      }
+    },    
+    mounted(){
+      // this.lisElement()
+    }
+
+
 }
 </script>

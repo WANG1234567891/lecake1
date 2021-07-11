@@ -43,7 +43,9 @@ Vue.filter('dataFormat', function(originVal) {
     return `${ y }-${ m }-${ d } ${ hh }:${ mm }:${ ss }`
 
 })
-
+Vue.filter('priceFilter', function(price) {
+    return "￥" + price.toFixed(2)
+})
 import MyHeader from './components/MyHeader'
 import MyFoot from './components/MyFoot'
 Vue.component("my-header", MyHeader)

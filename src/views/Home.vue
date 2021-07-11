@@ -7,8 +7,7 @@
         <el-carousel-item
           v-for="(item, index) of car"
           :key="index"
-          style="height: 555px"
-        >
+          style="height: 555px">
           <img :src="item.CarImg" alt="" style="" />
         </el-carousel-item>
       </el-carousel>
@@ -37,8 +36,7 @@
           <el-carousel-item
             v-for="(item, index) of carousels"
             :key="index"
-            style="height: 300px"
-          >
+            style="height: 300px">
             <img :src="item.url" alt="" class="carou2" />
           </el-carousel-item>
         </el-carousel>
@@ -66,24 +64,21 @@
         <div class="foot-1-1">
           <div class="one">
             <p>183****8528 &nbsp;&nbsp; 2020-08-11</p>
-            <span
-              >包装完好。蛋糕很好吃,不是很甜腻，味道真的好。造型也很好看,8个人很快就吃完了</span
-            >
-          </div>
+            <span>包装完好。蛋糕很好吃,不是很甜腻，味道真的好。造型也很好看,8个人很快就吃完了</span>
+          </div><br>
           <div class="two">
             <p>135****8927 &nbsp;&nbsp; 2020-06-27</p>
-            <span
-              >美貌的蛋糕，就像美貌的妈妈~口味没的说，老顾客了，品质一如既往地好。希望以后也有这么用心的产品。</span
-            >
-          </div>
+            <span>美貌的蛋糕，就像美貌的妈妈~口味没的说，老顾客了，品质一如既往地好。希望以后也有这么用心的产品。</span>
+          </div><br>
           <div class="three">
             <p>185****6835 &nbsp;&nbsp; 2020-06-22</p>
-            <span
-              >在诺心订的最好吃的一次,里面夹的果酱特别好吃配了巧克力牌，很可爱。</span
-            >
+            <span>在诺心订的最好吃的一次,里面夹的果酱特别好吃配了巧克力牌，很可爱。</span>
           </div>
         </div>
       </div>
+    </div>
+    <div ref="innerRef" class="inner-container">
+         <p class="text" v-for="(text,index) in arr" :key="index">{{text}}</p>
     </div>
     <my-foot></my-foot>
   </div>
@@ -185,6 +180,7 @@
   border: 1px solid black;
   text-align: center;
   line-height: 34px;
+  margin-top: 1.3rem;
 }
 #index .center-1-1 #a1:hover {
   background: #f8c182;
@@ -268,6 +264,7 @@
 #index .cake .cake-1-1 {
   float: left;
   width: 294px;
+  height: 300px;
   transition: 2s;
   margin-bottom: 5px;
 }
@@ -276,6 +273,8 @@
   width: 250px;
   height: 230px;
   padding-top: 20px;
+  margin-bottom: 4px
+  ;margin-bottom: .7rem;
   transition: 1s;
 }
 
@@ -297,7 +296,7 @@
 #index .cake-1-1 .p2 {
   font-size: 12px;
   color: #949494;
-  margin-bottom: 0;
+  margin: .34rem 0;
 }
 
 #index .p3 {
@@ -318,13 +317,13 @@
 
 .foot {
   width: 1200px;
-  margin: 0 auto;
+  margin: 1rem auto;
 }
 
 .foot h4 {
   text-align: center;
 }
-
+.foot-1-1 div p{margin-bottom: .5rem;}
 /* 在线客服 */
 
 #index #bot {
@@ -346,30 +345,99 @@
 #index #bot img:hover {
   background: coral;
 }
+
+.inner-container{
+  overflow: hidden;
+  position: absolute;
+  width: 200px;
+  height: 50px;
+  top: 400px;
+  left: 80px;
+  z-index: 20;
+}
+.text{     
+     animation: myMove 5s linear infinite;
+     text-align: center;
+     line-height: 15px;
+     width: 100%;height: 100%;
+     animation-fill-mode: forwards;
+     font-size: 14px;
+     font-weight: bold;
+}
+/*文字停顿滚动*/
+@keyframes myMove {
+  0% {
+    transform: translateY(0);
+  }
+  10% {
+    transform: translateY(-30px);
+  }
+  20% {
+    transform: translateY(-30px);
+  }
+  30% {
+    transform: translateY(-60px);
+  }
+  40% {
+    transform: translateY(-60px);
+  }
+  50% {
+    transform: translateY(-90px);
+  }
+  60% {
+    transform: translateY(-90px);
+  }
+  70% {
+    transform: translateY(-120px);
+  }
+  80% {
+    transform: translateY(-120px);
+  }
+  90% {
+    transform: translateY(-150px);
+  }
+  100% {
+    transform: translateY(-150px);
+  }
+}
+
 </style>
 <script>
 export default {
   data() {
     return {
       car: [],
+      arr:[
+           'hello',
+           '抓住！草莓季の尾巴  草莓季人气蛋糕 享限时8折',
+           '扑通扑通！我的少女心 梦幻马卡龙塔 限时立减100元',
+           '风靡Ins  甜品“焦”点来袭 人气巴斯克限时免费加大  2磅仅￥218', 
+           '「金」运降喜  福寿安康 金运纳福礼包来袭 享限时折扣',
+           '风靡Ins  甜品“焦”点来袭 人气巴斯克限时免费加大  2磅仅￥218'
+      ],
       carousels: [
-        { url: require("../../public/carousel/lunbofour.jpg") },
+        { url: require("../../public/carousel/lunbotwo.jpg") },
         { url: require("../../public/carousel/lunboone.jpg") },
         { url: require("../../public/carousel/lunbofour.jpg") },
       ],
       category: [],
     };
   },
+  methods:{
+  },
   mounted() {
     //通过axios工具向Web服务器发送请求以获取文章分类的数据
     this.axios.get("/category").then((res) => {
       this.category = res.data.results;
-      console.log(res.data.results);
+      // console.log(res.data.results);
+          // 评论区
+
     });
     this.axios.get("/carousel").then((res) => {
       this.car = res.data.results;
-      console.log(res.data.results);
+      // console.log(res.data.results);
     });
+    
   },
 };
 </script>
