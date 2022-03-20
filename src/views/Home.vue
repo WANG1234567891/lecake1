@@ -361,6 +361,7 @@ export default {
     };
   },
   mounted() {
+console.log("very good!")
     //通过axios工具向Web服务器发送请求以获取文章分类的数据
     this.axios.get("/category").then((res) => {
       this.category = res.data.results;
